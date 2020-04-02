@@ -45,7 +45,7 @@ public class OptimalPolicy implements WorkerPolicy {
         while (last > 0) {
             Pair<Event, Double> event = events.get(last);
             if (event.getX().isEnd()) {
-                if (dp[last] == dp[endToBeginIndexMap.get(last)] + event.getY()) {
+                if (dp[last] != dp[last - 1] && dp[last] == dp[endToBeginIndexMap.get(last)] + event.getY()) {
                     dischargedTrains.add(trains.get(event.getX().getIndex() - 1));
                     last = endToBeginIndexMap.get(last);
                 } else {
