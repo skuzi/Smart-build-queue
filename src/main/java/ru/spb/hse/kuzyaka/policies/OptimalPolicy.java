@@ -8,12 +8,15 @@ import java.util.*;
 
 public class OptimalPolicy implements WorkerPolicy {
     private List<Pair<Event, Double>> events;
-    private Map<Integer, Integer> endToBeginIndexMap;
 
     @Override
     public Schedule findBestSchedule(List<Train> trains) {
+        if (trains.isEmpty()) {
+            return new Schedule(0, Collections.emptyList());
+        }
+
         createEvents(trains);
-        endToBeginIndexMap = new HashMap<>();
+        Map<Integer, Integer> endToBeginIndexMap = new HashMap<>();
         Map<Integer, Integer> beginToIndexMap = new HashMap<>();
         Collections.sort(events);
         for (int i = 0; i < events.size(); i++) {
@@ -108,7 +111,7 @@ public class OptimalPolicy implements WorkerPolicy {
             if (time == o.time) {
                 return index - o.index;
             }
-            return (int)time - (int)o.time;
+            return (int) time - (int) o.time;
         }
     }
 }
