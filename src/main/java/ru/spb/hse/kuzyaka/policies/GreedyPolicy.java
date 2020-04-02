@@ -8,7 +8,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Stack;
 
-public class GreedPolicy implements WorkerPolicy {
+public class GreedyPolicy implements WorkerPolicy {
     @Override
     public Schedule findBestSchedule(List<Train> trains) {
         List<Train> trainList = new ArrayList<>(trains);
