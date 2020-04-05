@@ -8,7 +8,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+/** Entry point of application */
 public class Main {
+    /**
+     * Asks for list of train, then prints a schedule that is got from solving a problem using optimal policy
+     * @param args arguments of application, not used
+     */
     public static void main(String[] args) {
         try (Scanner sc = new Scanner(System.in)) {
             List<Train> trains = new ArrayList<>();

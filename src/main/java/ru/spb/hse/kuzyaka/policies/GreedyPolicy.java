@@ -8,7 +8,16 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Stack;
 
+/** Implements greedy policy */
 public class GreedyPolicy implements WorkerPolicy {
+
+    /** Finds best schedule according to greedy policy.
+     * Sorts trains by their time of arrival, then traverses the list and
+     * erases from answer such trains that discharge later than current train and their profit is smaller, then adds
+     * current train to the answer.
+     * @param trains list of trains to select a schedule from
+     * @return schedule with selected trains
+     */
     @Override
     public Schedule findBestSchedule(List<Train> trains) {
         List<Train> trainList = new ArrayList<>(trains);

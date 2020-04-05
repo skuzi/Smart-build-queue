@@ -6,9 +6,16 @@ import ru.spb.hse.kuzyaka.entities.Train;
 
 import java.util.*;
 
+/** Implements optimal policy */
 public class OptimalPolicy implements WorkerPolicy {
     private List<Pair<Event, Double>> events;
 
+    /** Finds best schedule according to optimal policy.
+     * Uses scanning line and dynamic programming, for more details see
+     * https://github.com/skuzi/Smart-build-queue/blob/master/README.md
+     * @param trains list of trains to select a schedule from
+     * @return schedule with selected trains
+     */
     @Override
     public Schedule findBestSchedule(List<Train> trains) {
         if (trains.isEmpty()) {
